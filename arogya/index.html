@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Arogya – Health guidance for everyone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F9F8;--surface:#fff;--ink:#10302E;--muted:#4F6663;--green:#0F7B6C;--link:#0B6458;--on-green:#fff;--blue:#2A7FA8;--sun:#F4B942;--line:#DCE6E3;--shadow:0 1px 2px rgba(16,48,46,.06),0 14px 36px rgba(16,48,46,.09);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A1615;--surface:#10211F;--ink:#E6F1EE;--muted:#9AB3AE;--green:#3FB8A0;--link:#6FD3BE;--on-green:#05201B;--blue:#6CC1E3;--line:#22403B;--shadow:0 14px 36px rgba(0,0,0,.35)}}
+:root[data-theme="dark"]{--bg:#0A1615;--surface:#10211F;--ink:#E6F1EE;--muted:#9AB3AE;--green:#3FB8A0;--link:#6FD3BE;--on-green:#05201B;--blue:#6CC1E3;--line:#22403B;--shadow:0 14px 36px rgba(0,0,0,.35)}
+.dk{--ink:#F1F8F6;--muted:#B7CEC9;--line:rgba(255,255,255,.16);--surface:rgba(255,255,255,.06);--link:#8BE0CC;--green:#3FB8A0;--on-green:#05201B;background:linear-gradient(155deg,#082826 0%,#0B3F3A 100%);color:var(--ink)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 "DM Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.brand{font-family:Fraunces,"DM Sans",system-ui,sans-serif;line-height:1.12;margin:0}
+a{color:var(--link)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.btn{display:inline-block;font:600 15px "DM Sans",sans-serif;padding:13px 24px;border-radius:10px;border:1px solid var(--line);color:var(--ink);text-decoration:none;cursor:pointer;background:transparent;transition:background .15s,border-color .15s}
+.btn:hover{border-color:var(--link)}
+.btn.p{background:var(--green);border-color:var(--green);color:var(--on-green)}
+.btn.p:hover{filter:brightness(1.08)}
+.dk .btn.p{background:#fff;border-color:#fff;color:#082826}
+.hero{position:relative;overflow:hidden;padding-bottom:0}
+header{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-size:24px;font-weight:700;letter-spacing:-.01em;text-decoration:none;color:var(--ink)}
+nav{display:flex;gap:30px;align-items:center;font-size:15px}
+nav a{color:var(--muted);text-decoration:none;font-weight:600}nav a:hover{color:var(--ink)}
+nav .btn{padding:9px 18px;color:var(--ink);font-size:14px}
+@media(max-width:700px){nav a:not(.btn){display:none}}
+.sun{position:absolute;left:78%;top:42%;width:min(760px,110vw);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(111,211,190,.22),transparent 66%)}
+.pulse{position:absolute;left:34%;width:66%;top:16%;height:300px;overflow:visible;opacity:.55;-webkit-mask-image:linear-gradient(90deg,transparent,#000 32%);mask-image:linear-gradient(90deg,transparent,#000 32%)}
+@media(max-width:700px){.pulse{left:0;width:100%;opacity:.22}}
+.pulse path{fill:none;stroke:#8BE0CC;stroke-width:2;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:0}
+@media(prefers-reduced-motion:no-preference){.pulse path{animation:draw 3.2s cubic-bezier(.5,0,.2,1) both}}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.hc{position:relative;z-index:1;padding:88px 0 64px;max-width:780px}
+.hero h1{font-size:clamp(38px,5.8vw,70px);font-weight:700;letter-spacing:-.03em;max-width:17ch}
+.hero p{color:var(--muted);max-width:52ch;margin:24px 0 0;font-size:19px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+.stats{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;border-top:1px solid var(--line);padding:28px 0 36px}
+.stats>div{padding-left:18px;border-left:2px solid #8BE0CC}
+.stats b{display:block;font:700 30px Fraunces,sans-serif;letter-spacing:-.02em}
+.stats span{color:var(--muted);font-size:14px}
+@media(max-width:600px){.stats{grid-template-columns:1fr}}
+section{padding:92px 0}
+h2{font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-.025em;max-width:20ch}
+.sub{color:var(--muted);max-width:56ch;margin:16px 0 0}
+.cw{display:grid;gap:24px;margin-top:44px}
+@media(min-width:900px){.cw{grid-template-columns:300px 1fr}}
+.topics{display:flex;flex-direction:column;gap:10px}
+.topics button{font:600 16px "DM Sans",sans-serif;text-align:left;padding:15px 18px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.topics button:hover{border-color:var(--green);box-shadow:var(--shadow)}
+.topics small{display:block;color:var(--muted);font-size:14px;font-weight:400;margin-top:2px}
+@media(max-width:899px){.topics{flex-direction:row;overflow-x:auto;padding-bottom:4px}.topics button{flex:none;width:220px}}
+.chat{background:var(--surface);border:1px solid var(--line);border-radius:16px;display:flex;flex-direction:column;height:590px;overflow:hidden;box-shadow:var(--shadow)}
+.chat-h{padding:16px 20px;border-bottom:1px solid var(--line);font:700 16px Fraunces,sans-serif;display:flex;align-items:center;gap:10px}
+.dot{width:9px;height:9px;border-radius:50%;background:#2FBF71;box-shadow:0 0 0 4px rgba(47,191,113,.18)}
+#log{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:12px}
+.m{max-width:84%;padding:12px 16px;border-radius:14px;font-size:16px;line-height:1.55;word-wrap:break-word}
+.m p{margin:0 0 8px}.m p:last-child{margin:0}.m ul{margin:4px 0 8px;padding-left:20px}
+.bot{background:var(--bg);border:1px solid var(--line);align-self:flex-start;border-bottom-left-radius:4px}
+.me{background:var(--green);color:var(--on-green);align-self:flex-end;border-bottom-right-radius:4px}
+.typing{opacity:.6}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:0 20px 12px}
+.chips button{flex:none;font:inherit;font-size:14px;padding:7px 14px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.chips button:hover{border-color:var(--green)}
+.row{display:flex;gap:10px;padding:14px 16px;border-top:1px solid var(--line)}
+#q{flex:1;min-width:0;font:inherit;font-size:16px;padding:12px 16px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+#send{font:600 15px "DM Sans",sans-serif;padding:0 24px;border:0;border-radius:10px;background:var(--green);color:var(--on-green);cursor:pointer}
+#send:disabled{opacity:.5;cursor:default}
+.alt{background:color-mix(in srgb,var(--green) 6%,var(--bg));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.feat{display:grid;gap:40px;margin-top:48px}
+@media(min-width:800px){.feat{grid-template-columns:repeat(3,1fr)}}
+.feat>div{border-top:2px solid var(--green);padding-top:20px}
+.feat h3{font-size:21px;letter-spacing:-.01em}.feat p{color:var(--muted);margin:10px 0 0}
+.steps{list-style:none;padding:0;margin:48px 0 0;display:grid;gap:32px;counter-reset:s}
+@media(min-width:800px){.steps{grid-template-columns:repeat(3,1fr)}}
+.steps li{counter-increment:s;padding-left:64px;position:relative}
+.steps li:before{content:counter(s);position:absolute;left:0;top:-2px;width:44px;height:44px;border-radius:12px;background:var(--green);color:var(--on-green);font:700 20px Fraunces,sans-serif;display:grid;place-items:center}
+.steps h3{font-size:21px}.steps p{color:var(--muted);margin:6px 0 0}
+.goals h2{max-width:22ch}
+.targets{display:grid;gap:36px 56px;margin-top:48px}
+@media(min-width:700px){.targets{grid-template-columns:1fr 1fr}}
+.t{border-left:2px solid var(--link);padding-left:22px}
+.t b{font:700 34px Fraunces,sans-serif;color:var(--link);letter-spacing:-.02em}
+.t p{margin:6px 0 0;font-size:18px}
+.urgent{border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:22px 26px;background:var(--surface);max-width:780px;box-shadow:var(--shadow)}
+.urgent h3{font-size:20px;margin-bottom:6px}.urgent p{margin:0;color:var(--muted)}
+.end{text-align:center}.end h2{margin:0 auto}.end .cta{justify-content:center;margin-top:30px}
+footer{padding:30px 0 44px;font-size:14px;color:var(--muted);text-align:center}
+
+#report .rw{display:grid;gap:24px;margin-top:44px}
+@media(min-width:900px){#report .rw{grid-template-columns:420px 1fr;align-items:start}}
+.rin,.rout{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:var(--shadow)}
+.rin label{display:block;font:700 15px Fraunces,sans-serif;margin:18px 0 6px}.rin label:first-child{margin-top:0}
+.rin textarea,.rin input[type=file]{width:100%;font:inherit;font-size:15px;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);resize:vertical}
+.note{font-size:13px;color:var(--muted);margin:14px 0}
+.rin .btn{width:100%}
+.empty{color:var(--muted);margin:0}
+.rb{margin-bottom:22px}.rb h3{font-size:19px;margin-bottom:8px}.rb p{margin:0}.rb ul{margin:0;padding-left:20px}.rb li{margin-bottom:4px}
+.rb.warn{border-left:4px solid var(--blue);padding-left:16px}
+.tw{overflow-x:auto;margin-bottom:22px}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:700 13px Fraunces,sans-serif;color:var(--muted)}
+.chip{display:inline-block;padding:2px 10px;border-radius:99px;font-size:13px;font-weight:600;text-transform:capitalize}
+.chip.ok{background:rgba(47,191,113,.16);color:var(--link)}
+.chip.ab{background:rgba(224,120,60,.18);color:color-mix(in srgb,#E0783C 55%,var(--ink))}
+.chip.rv{background:rgba(244,185,66,.24);color:var(--ink)}
+.rbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.rbar .note{margin:0}
+
+details{border-bottom:1px solid var(--line);padding:18px 0}
+summary{cursor:pointer;font:700 18px Fraunces,sans-serif;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font-size:24px;line-height:1;color:var(--link)}
+details[open] summary:after{content:"\2013"}
+details p{margin:12px 0 0;color:var(--muted);max-width:68ch}
+.faq{max-width:820px;margin-top:36px;border-top:1px solid var(--line)}
+.tl{margin-left:auto;display:flex;gap:8px}
+.tl select,.tl button{font:inherit;font-size:13px;padding:5px 8px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.rin input:not([type=file]),.rin select{width:100%;font:inherit;font-size:15px;padding:11px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.lvl{font-size:15px;padding:5px 14px;margin-bottom:12px}
+.alert{border:1px solid var(--blue);border-left-width:4px;border-radius:10px;padding:12px 16px;margin-bottom:18px;font-weight:600}
+.bmi{font:700 56px Fraunces,sans-serif;letter-spacing:-.03em;line-height:1}
+.scale{position:relative;height:10px;border-radius:99px;margin:22px 0 14px;background:linear-gradient(90deg,#5BA7D6 0 14%,#2FBF71 14% 40%,#F4B942 40% 60%,#E0783C 60%)}
+.scale i{position:absolute;top:-5px;width:4px;height:20px;border-radius:2px;background:var(--ink);transform:translateX(-50%)}
+#th{padding:8px 12px}
+.fine{align-self:center;font-size:13px;color:var(--muted);text-align:center;max-width:92%}
+
+[hidden]{display:none!important}
+.sep{border-top:1px solid var(--line)}
+.tip{background:var(--surface);border-bottom:1px solid var(--line)}
+.tip .wrap{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;padding-top:16px;padding-bottom:16px}
+.tip b{font:700 16px Fraunces,serif;color:var(--link)}
+.ctr{display:flex;align-items:center;gap:22px}
+.ctr b{font:700 44px Fraunces,serif;min-width:52px;text-align:center}
+.ctr .btn{width:50px;height:50px;padding:0;font-size:26px;line-height:1}
+.moods{display:flex;gap:8px;flex-wrap:wrap}
+.moods button{font:600 15px "DM Sans",sans-serif;padding:9px 16px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.moods button[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:var(--on-green)}
+.pb{margin:14px 0}.pl{font-size:15px;margin-bottom:6px}
+.pt{height:10px;border-radius:99px;background:var(--line);overflow:hidden}
+.pt i{display:block;height:100%;background:var(--green);border-radius:99px;transition:width .4s}
+.hl{display:block;font:700 15px Fraunces,serif;margin:18px 0 6px}
+.urgent select{width:100%;max-width:320px;font:inherit;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+#hn{margin-top:12px;display:grid;gap:8px}
+#hn a{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:var(--ink);font-weight:600;max-width:520px}
+#hn a b{color:var(--link)}
+#mic{width:46px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);cursor:pointer;display:grid;place-items:center}
+.fab{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:5;background:var(--green);color:var(--on-green);padding:13px 22px;border-radius:99px;font-weight:600;text-decoration:none;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .25s}
+.fab.on{opacity:1;pointer-events:auto}
+.js .reveal{opacity:0;transform:translateY(18px)}
+.js .reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
+@media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none}}
+</style>
+<meta name="description" content="Arogya gives clear, caring health guidance in plain language: AI chat, symptom check, medical report explainer and BMI. Built around UN Sustainable Development Goal 3."><meta property="og:title" content="Arogya – Health guidance for everyone"><meta name="theme-color" content="#082826"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='25' fill='%23F4B942'/%3E%3Cpath d='M8 36h13l5-14 8 26 6-16h16' stroke='%230F2A27' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"></head>
+<body>
+<div class="hero dk">
+  <div class="sun"></div>
+  <svg class="pulse" viewBox="0 0 1200 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path pathLength="1" d="M0 150H430l30-70 50 150 46-110 28 30H1200"/></svg>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#top" id="top"><svg viewBox="0 0 64 64" width="38" height="38" aria-hidden="true"><circle cx="32" cy="32" r="25" fill="#F4B942"/><path d="M8 36h13l5-14 8 26 6-16h16" stroke="#0F2A27" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Arogya</a>
+      <nav><a href="#chat">Chat</a><a href="#report">Reports</a><a href="#symptoms">Symptoms</a><a href="#tracker">Check-in</a><a href="#how">How it works</a><a href="#goals">SDG 3</a><button class="btn" id="th" aria-label="Switch light or dark theme">◐</button><a class="btn" href="#chat">Ask Arogya</a></nav>
+    </header>
+    <div class="hc">
+      <h1>Health guidance that reaches everyone</h1>
+      <p>Ask an everyday health question and get a clear, caring answer in your own language, plus a nudge toward real care when you need it.</p>
+      <div class="cta"><a class="btn p" href="#chat">Start chatting</a><a class="btn" href="#how">See how it works</a></div>
+    </div>
+    <div class="stats"><div><b>Goal 3</b><span>of the 17 global goals</span></div><div><b>13</b><span>health targets</span></div><div><b>2030</b><span>the deadline to deliver</span></div></div>
+  </div>
+</div>
+
+<div class="tip"><div class="wrap"><b>Today's tip</b><span id="tip"></span></div></div>
+
+<main>
+<section id="chat">
+  <div class="wrap">
+    <h2>Ask anything about your health</h2>
+    <p class="sub">Pick a topic or type your own question. Arogya explains in plain language and tells you when to see a health worker.</p>
+    <div class="cw">
+      <div class="topics" id="topics">
+        <button data-p="Give me practical ways to manage stress and protect my mental well-being.">Mental well-being<small>Stress, anxiety, low mood</small></button>
+        <button data-p="What should I know about a healthy pregnancy and caring for a newborn?">Mother and child<small>Pregnancy, newborn care</small></button>
+        <button data-p="Which vaccines are recommended for children and adults, and why do they matter?">Vaccines<small>For children and adults</small></button>
+        <button data-p="How can I eat well on a budget and build a balanced plate?">Nutrition<small>Balanced, affordable eating</small></button>
+        <button data-p="How can I stay safe during extreme heat or on days with polluted air?">Heat and clean air<small>Staying safe outdoors</small></button>
+      </div>
+      <div class="chat" role="region" aria-label="Health chatbot">
+        <div class="chat-h"><span class="dot"></span>Arogya health guide<span class="tl"><select id="lang" aria-label="Reply language"><option value="">Auto language</option><option>English</option><option>Hindi</option><option>Gujarati</option><option>Spanish</option><option>French</option><option>Arabic</option></select><button id="nc" aria-label="Start a new chat">New chat</button></span></div>
+        <div id="log" aria-live="polite"><div class="m bot">Hi, I'm Arogya. Ask me about nutrition, sleep, mental well-being, vaccines, mother and child health, or staying safe in heat and polluted air.</div></div>
+        <div class="chips" id="chips"><button>How do I manage stress?</button><button>Signs of dehydration</button><button>What is a balanced plate?</button><button>How much sleep do adults need?</button></div>
+        <div class="row"><input id="q" type="text" placeholder="Type a health question" aria-label="Your question" autocomplete="off"><button id="mic" type="button" aria-label="Speak your question" hidden><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button><button id="send">Send</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="report">
+  <div class="wrap">
+    <h2>Understand your medical reports</h2>
+    <p class="sub">Paste the text of a lab or radiology report, or upload clear photos of it. Arogya turns it into a structured summary in plain language that you can take to your doctor.</p>
+    <div class="rw">
+      <div class="rin">
+        <label for="rt">Report text</label>
+        <textarea id="rt" rows="8" placeholder="Paste the text of your lab results, MRI or radiology report, or discharge summary"></textarea>
+        <div id="imgbox" hidden><label for="rf">Or upload photos of the report</label><input id="rf" type="file" multiple></div>
+        <label for="rh">Patient history (optional)</label>
+        <textarea id="rh" rows="3" placeholder="Age, existing conditions, current medicines"></textarea>
+        <p class="note">Remove your name, ID numbers and contact details first. Arogya explains written reports. It does not read raw scan images such as X-ray or MRI films.</p>
+        <button class="btn p" id="go">Analyse report</button>
+      </div>
+      <div class="rout" id="rout" aria-live="polite"><p class="empty">Your structured report will appear here.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="symptoms">
+  <div class="wrap">
+    <h2>Check your symptoms</h2>
+    <p class="sub">Describe how you feel and get a first-step suggestion: manage at home, see a doctor soon, or get urgent help.</p>
+    <div class="rw">
+      <div class="rin">
+        <label for="st">What are you experiencing?</label>
+        <textarea id="st" rows="5" placeholder="For example: sore throat and mild fever since yesterday"></textarea>
+        <div class="two"><div><label for="sa">Age</label><input id="sa" type="number" min="0" max="120" placeholder="Years"></div><div><label for="sd">For how long?</label><select id="sd"><option>Less than a day</option><option>1 to 3 days</option><option>4 to 7 days</option><option>More than a week</option></select></div></div>
+        <p class="note">This is not a diagnosis. If you think it is an emergency, call your local emergency number now.</p>
+        <button class="btn p" id="sg">Check symptoms</button>
+      </div>
+      <div class="rout" id="sout" aria-live="polite"><p class="empty">Your suggestion will appear here.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="tools">
+  <div class="wrap">
+    <h2>Check your body mass index</h2>
+    <p class="sub">BMI is a quick screening number. It does not measure body fat and does not replace a check-up.</p>
+    <div class="rw">
+      <div class="rin">
+        <div class="two"><div><label for="bh">Height (cm)</label><input id="bh" type="number" min="50" max="250" placeholder="165"></div><div><label for="bw">Weight (kg)</label><input id="bw" type="number" min="10" max="400" placeholder="60"></div></div>
+        <button class="btn p" id="bc" style="margin-top:20px">Calculate</button>
+      </div>
+      <div class="rout" id="bout" aria-live="polite"><p class="empty">Enter your height and weight.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sep" id="tracker">
+  <div class="wrap">
+    <h2>Your daily health check-in</h2>
+    <p class="sub">Log water, sleep and mood in a few taps. Your entries stay on this device only.</p>
+    <div class="rw">
+      <div class="rin">
+        <label>Water (glasses of about 250 ml)</label>
+        <div class="ctr"><button class="btn" id="wm" aria-label="Remove a glass">&minus;</button><b id="wn">0</b><button class="btn" id="wp" aria-label="Add a glass">+</button></div>
+        <label for="ts">Sleep last night</label>
+        <select id="ts"><option value="">Not logged</option><option value="4">4 hours or less</option><option value="5">5 hours</option><option value="6">6 hours</option><option value="7">7 hours</option><option value="8">8 hours</option><option value="9">9 hours</option><option value="10">10 hours or more</option></select>
+        <label>How do you feel today?</label>
+        <div class="moods" id="moods"><button data-m="1" aria-pressed="false">Low</button><button data-m="2" aria-pressed="false">Down</button><button data-m="3" aria-pressed="false">Okay</button><button data-m="4" aria-pressed="false">Good</button><button data-m="5" aria-pressed="false">Great</button></div>
+      </div>
+      <div class="rout" id="tout" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>Built to be trusted and easy to use</h2>
+    <div class="feat">
+      <div><h3>Plain-language answers</h3><p>Short, practical replies without jargon, grounded in widely accepted health guidance.</p></div>
+      <div><h3>Knows its limits</h3><p>Arogya never diagnoses or gives medicine doses. Warning signs are sent straight to emergency care.</p></div>
+      <div><h3>Your language</h3><p>Write in the language you are most comfortable with and Arogya replies in kind.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><h3>Ask</h3><p>Type a question or choose a topic. No sign-up form, no medical terms needed.</p></li>
+      <li><h3>Understand</h3><p>Get a short, clear explanation of what is generally known and what to watch for.</p></li>
+      <li><h3>Act</h3><p>Know your next step, from simple self-care to speaking with a doctor or nurse.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="dk goals" id="goals">
+  <div class="wrap">
+    <h2>What SDG 3 sets out to achieve by 2030</h2>
+    <p class="sub">Goal 3 is “Good Health and Well-being”. Arogya is built around four of its 13 targets.</p>
+    <div class="targets">
+      <div class="t"><b>3.1</b><p>Bring maternal deaths below 70 per 100,000 live births.</p></div>
+      <div class="t"><b>3.2</b><p>End preventable deaths of newborns and children under five.</p></div>
+      <div class="t"><b>3.4</b><p>Cut early deaths from non-communicable diseases by a third and promote mental health.</p></div>
+      <div class="t"><b>3.8</b><p>Reach universal health coverage, with access to essential services, medicines and vaccines.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>Common questions</h2>
+    <div class="faq">
+      <details><summary>Is Arogya a doctor?</summary><p>No. Arogya shares general health information and helps you prepare for a conversation with a health worker. It never diagnoses or suggests medicine doses.</p></details>
+      <details><summary>Is my information stored?</summary><p>This page does not keep your questions or reports. They are sent to an AI service to produce the answer, so leave out your name, ID numbers and contact details.</p></details>
+      <details><summary>Can it read X-rays or MRI films?</summary><p>No. It explains written reports, such as lab results and the radiologist's text report, but it does not interpret raw scan images.</p></details>
+      <details><summary>Which languages does it support?</summary><p>Pick a language in the chat window, or write in your own language and Arogya will reply in it.</p></details>
+      <details><summary>What if it is an emergency?</summary><p>Call your local emergency number or go to the nearest hospital straight away. Do not wait for an online answer.</p></details>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="urgent"><h3>When to get urgent help</h3><p>Call your local emergency number right away for chest pain, trouble breathing, signs of a stroke (face drooping, arm weakness, slurred speech), severe bleeding, poisoning, or thoughts of harming yourself.</p><label for="hc" class="hl">Find helpline numbers</label><select id="hc"><option value="">Choose your country</option><option>India</option><option>United States</option><option>United Kingdom</option><option>Australia</option><option>Canada</option><option>European Union</option></select><div id="hn" aria-live="polite"></div></div>
+  </div>
+</section>
+
+<section class="alt end">
+  <div class="wrap"><h2>Good health is a right, not a privilege</h2><div class="cta"><a class="btn p" href="#chat">Ask Arogya now</a></div></div>
+</section>
+</main>
+
+<footer><div class="wrap">Arogya shares general health information and is not a substitute for a doctor. Built for UN Sustainable Development Goal 3.<br>© 2026 Arogya</div></footer>
+
+<script>
+const $=s=>document.querySelector(s),log=$('#log'),input=$('#q'),send=$('#send');
+const SYS="You are Arogya, a friendly health-information guide aligned with UN Sustainable Development Goal 3 (Good Health and Well-being). Give clear, practical, evidence-based information in plain language, under 150 words, using short paragraphs or a few bullet points. You are not a doctor: never diagnose or give medicine doses. For red-flag symptoms (chest pain, trouble breathing, severe bleeding, stroke signs, poisoning, thoughts of self-harm) tell the person to contact local emergency services immediately. Encourage seeing a qualified health worker for personal concerns. Stay on health, well-being and SDG 3 topics and politely redirect anything else. Reply in the language the person writes in.";
+let hist=[],busy=false,sp=null;
+const getSample=()=>sp||(sp=(window.claude&&claude.use?claude.use('sample'):Promise.resolve(null)).catch(()=>null));
+function md(t){const e=t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');let o='',l=false;
+ for(const s of e.split('\n')){const m=s.match(/^\s*[-*•]\s+(.*)/);
+  if(m){if(!l){o+='<ul>';l=true}o+='<li>'+m[1]+'</li>'}else{if(l){o+='</ul>';l=false}if(s.trim())o+='<p>'+s+'</p>'}}
+ return(l?o+'</ul>':o).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>')}
+function add(c,t){const d=document.createElement('div');d.className='m '+c;d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight;return d}
+function done(){busy=false;send.disabled=false;input.focus()}
+async function ask(text){
+ text=text.trim();if(!text||busy)return;busy=true;send.disabled=true;input.value='';
+ add('me',text);hist.push({role:'user',content:text});
+ const el=add('bot','Thinking…');el.classList.add('typing');
+ const sample=await getSample();
+ if(!sample){let a=null;
+  try{a=await remote(hist.slice(-7).map(t=>({...t})),$('#lang').value)}catch(e){}
+  const live=!!a;a=a||kb(text);hist.push({role:'assistant',content:a});
+  el.classList.remove('typing');el.innerHTML=md(a);
+  if(!live&&!noted){noted=true;const n=document.createElement('div');n.className='fine';n.textContent="You are seeing Arogya's built-in guide because the AI service is not reachable right now.";log.appendChild(n)}
+  log.scrollTop=log.scrollHeight;return done()}
+ const turns=hist.slice(-7).map(t=>({...t}));turns[0].content=SYS+($('#lang').value?' Always reply in '+$('#lang').value+'.':'')+'\n\nConversation:\n'+turns[0].content;
+ try{
+  const r=await sample(turns,{cache:false,onText:({text})=>{el.classList.remove('typing');el.innerHTML=md(text);log.scrollTop=log.scrollHeight}});
+  hist.push({role:'assistant',content:r.text});el.classList.remove('typing');el.innerHTML=md(r.text);
+ }catch(e){hist.pop();el.classList.remove('typing');
+  el.textContent=e&&e.code==='not_granted'?'Chat permission was declined. Reload the page and allow it to continue.':e&&e.code==='rate_limited'?'Too many questions at once. Wait a moment and try again.':'Something went wrong. Please try again.'}
+ done()}
+send.onclick=()=>ask(input.value);
+input.onkeydown=e=>{if(e.key==='Enter')ask(input.value)};
+$('#chips').onclick=e=>{if(e.target.tagName==='BUTTON')ask(e.target.textContent)};
+$('#topics').onclick=e=>{const b=e.target.closest('button');if(b)ask(b.dataset.p)};
+
+const rt=$('#rt'),rh=$('#rh'),rf=$('#rf'),go=$('#go'),rout=$('#rout');
+let lastReport='';
+getSample().then(async x=>{if(!x){rf.accept='image/jpeg,image/png,image/webp';rf.dataset.max=3;$('#imgbox').hidden=false;return}if(!x.limits)return;try{const c=await x.limits();if(c.images){rf.accept=c.images.mediaTypes.join(',');rf.dataset.max=c.images.maxCount;$('#imgbox').hidden=false}}catch(e){}});
+const el=(t,c,x)=>{const n=document.createElement(t);if(c)n.className=c;if(x!=null)n.textContent=x;return n};
+const arr=a=>Array.isArray(a)?a.map(String):[];
+function list(title,a,cls){a=arr(a);if(!a.length)return null;const d=el('div','rb '+(cls||''));d.append(el('h3',null,title));const u=el('ul');a.forEach(x=>u.append(el('li',null,x)));d.append(u);return d}
+function toText(r){const L=['AROGYA REPORT SUMMARY',r.report_type||'','',r.summary||'',''];
+ (r.findings||[]).forEach(f=>L.push(`- ${f.name}: ${f.value} (reference ${f.reference||'n/a'}) [${f.status}]`));
+ [['What this may mean',r.meaning],['Questions to ask your doctor',r.questions],['See a doctor urgently if',r.urgent]].forEach(([t,a])=>{a=arr(a);if(a.length)L.push('',t+':',...a.map(x=>'- '+x))});
+ L.push('','General information only, not a diagnosis.');return L.join('\n')}
+async function saveReport(b){try{const d=await claude.use('downloads');if(!d)throw{code:'unavailable'};await d.save({filename:'arogya-report-summary.txt',data:lastReport})}catch(e){if(!e||e.code!=='declined')b.textContent='Saving unavailable'}}
+function render(r){
+ rout.textContent='';lastReport=toText(r);
+ const top=el('div','rb');top.append(el('h3',null,r.report_type||'Report summary'),el('p',null,r.summary||''));rout.append(top);
+ if(Array.isArray(r.findings)&&r.findings.length){const w=el('div','tw'),t=el('table'),hd=el('tr');
+  ['Test or finding','Result','Reference','Status'].forEach(h=>hd.append(el('th',null,h)));t.append(hd);
+  r.findings.forEach(f=>{const tr=el('tr'),st=String(f.status||'review').toLowerCase(),td=el('td');
+   td.append(el('span','chip '+(st==='normal'?'ok':st==='review'?'rv':'ab'),st));
+   tr.append(el('td',null,String(f.name||'')),el('td',null,String(f.value||'')),el('td',null,String(f.reference||'–')),td);t.append(tr)});
+  w.append(t);rout.append(w)}
+ [list('What this may mean',r.meaning),list('Questions to ask your doctor',r.questions),list('See a doctor urgently if',r.urgent,'warn')].forEach(x=>x&&rout.append(x));
+ const bar=el('div','rbar'),sv=el('button','btn','Save report');sv.onclick=()=>saveReport(sv);bar.append(sv,el('span','note','General information only, not a diagnosis.'));rout.append(bar)}
+const RP='You are Arogya, a careful health-information assistant. The user shares a written medical report (lab results, radiology or MRI report text, discharge summary) as text and/or photos, plus optional patient history. Explain it in plain language for a non-expert. Use only what the report says, compare each value with the reference range printed on the report, never diagnose, and never recommend medicines or doses. If an image is a raw scan (X-ray, MRI or CT film) or is not a medical report, return an empty findings array and say in the summary that you can only explain written reports. Use status values: normal, high, low, abnormal or review. Reply with only JSON in this shape: {"report_type":"string","summary":"2-3 sentences","findings":[{"name":"","value":"","reference":"","status":""}],"meaning":["max 4 items"],"questions":["max 5 items"],"urgent":["max 3 warning signs relevant to this report"]}. Limit findings to the 15 most important. Reply in the language of the report.';
+go.onclick=async()=>{
+ const txt=rt.value.trim(),files=[...(rf.files||[])].slice(0,+rf.dataset.max||3);
+ if(!txt&&!files.length){rout.replaceChildren(el('p','empty','Paste the report text or upload a photo first.'));return}
+ go.disabled=true;rout.replaceChildren(el('p','empty','Analysing your report…'));
+ const x=await getSample();
+ 
+ const o={cache:false};if(files.length)o.images=files;
+ try{render(x?await x.json(RP+'\n\nPatient history: '+(rh.value.trim().slice(0,1500)||'not provided')+'\n\nReport text:\n'+(txt.slice(0,20000)||'(see the attached photos)'),o):await api({mode:'report',history:rh.value.trim().slice(0,1500),text:txt.slice(0,20000),images:await toB64(files)}))}
+ catch(e){const c=e&&e.code;rout.replaceChildren(el('p','empty',c==='not_granted'?'Permission was declined. Reload the page and allow it to continue.':c==='rate_limited'?'Too many requests. Wait a moment and try again.':c==='image_rejected'||c==='images_unavailable'?'The image could not be read. Try a clearer JPG or PNG, or paste the text instead.':c==='refused'?'This request could not be processed. Check that it is a written medical report.':'Could not build the report. Please try again, or paste the text instead.'))}
+ go.disabled=false};
+
+$('#th').onclick=()=>{const r=document.documentElement,d=r.dataset.theme==='dark'||(!r.dataset.theme&&matchMedia('(prefers-color-scheme:dark)').matches);r.dataset.theme=d?'light':'dark'};
+$('#nc').onclick=()=>{if(busy)return;hist=[];log.replaceChildren();add('bot',"Hi, I'm Arogya. Ask me anything about your health.")};
+$('#bc').onclick=()=>{const h=+$('#bh').value/100,w=+$('#bw').value,o=$('#bout');
+ if(!(h>.5&&h<2.5&&w>10&&w<400)){o.replaceChildren(el('p','empty','Enter a valid height in cm and weight in kg.'));return}
+ const b=w/(h*h),c=b<18.5?'Underweight':b<25?'Healthy range':b<30?'Overweight':'Obesity range',lo=(18.5*h*h).toFixed(1),hi=(24.9*h*h).toFixed(1);
+ const sc=el('div','scale'),mk=el('i');mk.style.left=Math.min(100,Math.max(0,(b-15)/25*100))+'%';sc.append(mk);
+ const d=el('div','rb');d.append(el('div','bmi',b.toFixed(1)),el('h3',null,c),sc,el('p',null,'A weight of '+lo+' to '+hi+' kg falls in the 18.5 to 24.9 range for your height.'),el('p','note','Some guidelines use lower cut-offs for South and East Asian adults, and BMI does not suit children, pregnancy or athletes. Ask a health worker what is right for you.'));
+ o.replaceChildren(d)};
+const RED=/chest pain|can'?t breathe|trouble breathing|short(ness)? of breath|stroke|unconscious|severe bleeding|seizure|overdose|poison|suicid|kill myself|harm myself|self-harm/i;
+const SP='You are Arogya, a careful health-information assistant doing first-step symptom triage, not diagnosis. Never name a definite condition, never give medicine doses. Use "urgent" for anything that could be life-threatening and choose the safer level when unsure. Reply with only JSON in this shape: {"level":"self_care or see_doctor or urgent","headline":"one plain sentence","reasons":["max 3 common possibilities, phrased as possibilities"],"actions":["max 4 safe next steps"],"warning_signs":["max 4 signs that mean get urgent help"]}. Reply in the language the person writes in.';
+$('#sg').onclick=async()=>{const t=$('#st').value.trim(),o=$('#sout'),b=$('#sg');
+ if(!t){o.replaceChildren(el('p','empty','Describe your symptoms first.'));return}
+ b.disabled=true;o.replaceChildren();
+ if(RED.test(t))o.append(el('div','alert','These symptoms can be an emergency. Call your local emergency number or go to the nearest hospital now. If you are thinking of harming yourself, contact emergency services or a crisis line right away.'));
+ const ph=el('p','empty','Checking…');o.append(ph);
+ const x=await getSample();
+ 
+ try{
+  const r=x?await x.json(SP+'\n\nAge: '+($('#sa').value||'not given')+'\nDuration: '+$('#sd').value+'\nSymptoms: '+t.slice(0,2000),{cache:false}):await api({mode:'symptoms',age:$('#sa').value,duration:$('#sd').value,symptoms:t.slice(0,2000)});
+  ph.remove();
+  const L={self_care:['Self-care is likely enough','ok'],see_doctor:['See a doctor soon','rv'],urgent:['Get urgent help now','ab']}[r.level]||['See a doctor soon','rv'];
+  const d=el('div','rb');d.append(el('span','chip lvl '+L[1],L[0]),el('p',null,String(r.headline||'')));o.append(d);
+  [list('Possible reasons',r.reasons),list('What you can do',r.actions),list('Get urgent help if',r.warning_signs,'warn')].forEach(y=>y&&o.append(y));
+  o.append(el('p','note','General information only, not a diagnosis.'))
+ }catch(e){const c=e&&e.code;ph.textContent=c==='not_granted'?'Permission was declined. Reload the page and allow it to continue.':c==='rate_limited'?'Too many requests. Wait a moment and try again.':'Could not complete the check. Please try again.'}
+ b.disabled=false};
+
+let noted=false;
+const remote=(m,language)=>api({mode:'chat',messages:m,language});
+const KB=[
+[/stress|anxi|worr|mental|mood|depress/i,"**Managing stress and protecting mental well-being**\n- Breathe slowly: in for 4 counts, out for 6, for a few minutes.\n- Move daily, even a 20-minute walk helps.\n- Keep a regular sleep routine and limit caffeine late in the day.\n- Talk to someone you trust and break big tasks into small steps.\nIf low mood or worry lasts more than two weeks or affects daily life, see a doctor or counsellor."],
+[/dehydrat|thirst|water intake/i,"**Signs of dehydration**\n- Thirst, dry mouth, tiredness, headache or dizziness.\n- Dark yellow urine, or passing little urine.\n- In babies: fewer wet nappies, no tears, a sunken soft spot.\nSip fluids regularly. For diarrhoea or vomiting, use oral rehydration solution (ORS). Confusion, fainting, a very fast heartbeat or almost no urine need urgent medical care."],
+[/balanced|nutrition|diet|\beat\b|eating|food|meal/i,"**A balanced plate**\n- Fill about half with vegetables and fruit.\n- About a quarter with whole grains, such as whole wheat, brown rice or millets.\n- About a quarter with protein, such as lentils, beans, eggs, fish, tofu or dairy.\n- Add small amounts of healthy fats like nuts and seeds, and drink water.\nLimit sugary drinks, packaged snacks and extra salt. Seasonal local produce is usually the cheapest choice."],
+[/sleep|insomnia/i,"**How much sleep you need**\n- Most adults need 7 to 9 hours; older adults about 7 to 8.\n- Teenagers need about 8 to 10 hours and school-age children 9 to 12.\nKeep a regular schedule, sleep in a dark, quiet, cool room, get morning daylight, and avoid screens and caffeine late in the evening. Loud snoring with pauses in breathing, or poor sleep lasting weeks, is worth discussing with a doctor."],
+[/vaccin|immuni|\bshot\b/i,"**Vaccines**\nVaccines train your body to fight serious diseases before you meet them. Childhood schedules usually cover tuberculosis, hepatitis B, polio, diphtheria, tetanus, whooping cough and measles, and the exact schedule varies by country. Adults may need tetanus boosters, a yearly flu shot and others depending on age, health and travel. Check your child's immunisation card with your local clinic. Mild soreness or a low fever after a shot is common."],
+[/pregnan|newborn|baby|infant|antenatal|breastfe/i,"**Pregnancy and newborn care**\n- Start antenatal check-ups early and attend them regularly; take iron and folic acid as advised.\n- Eat varied food and avoid tobacco and alcohol.\n- After birth, breastfeed soon and exclusively for the first six months, and keep the baby warm with skin-to-skin contact.\n- Follow the immunisation schedule.\nGet urgent help for heavy bleeding, severe headache with blurred vision, fits, reduced baby movements, or a newborn with fever, poor feeding, fast breathing or yellow skin."],
+[/\bheat|\bhot\b|sunstroke|heatstroke/i,"**Staying safe in extreme heat**\n- Drink water regularly, even if you are not thirsty.\n- Avoid the hottest hours, wear light loose clothing and a hat, and rest in shade.\n- Check on older people, children and outdoor workers.\nHeatstroke (very high temperature, confusion, fainting) is an emergency: move the person to shade, cool them with water and call emergency services."],
+[/\bair\b|pollut|smog|mask/i,"**Polluted air**\n- Check your local air quality index each day.\n- On bad days, limit outdoor exercise and keep windows closed at peak pollution.\n- If you must go out, wear a well-fitted N95 or FFP2 mask.\n- Avoid burning waste or fuel indoors.\nChildren, older adults, pregnant women and people with asthma or heart disease are most at risk. Seek care for wheezing or difficulty breathing."],
+[/fever|temperature/i,"**Fever**\nRest, drink fluids and wear light clothing. See a doctor if a fever lasts more than 3 days, goes above 39.4 °C (103 °F), or comes with a stiff neck, severe headache, rash, confusion or trouble breathing. A baby under 3 months with any fever needs urgent care. Do not give aspirin to children, and ask a doctor or pharmacist about fever medicine and doses."],
+[/exercise|physical activity|workout|\bfit\b|walk/i,"**Staying active**\nAdults should aim for at least 150 minutes of moderate activity a week, such as brisk walking, plus muscle-strengthening on two days. Children need about 60 minutes of activity a day. Start small, build up gradually, and break up long periods of sitting."],
+[/blood pressure|hypertension|diabet|sugar|heart|cholesterol/i,"**Heart health, blood pressure and diabetes**\n- Get your blood pressure and blood sugar checked regularly, especially after 30 or with a family history.\n- Stay active, cut back on salt and sugary food, and avoid tobacco.\n- Limit alcohol.\nIf you already have a diagnosis, keep taking prescribed medicines and attend follow-ups."]
+];
+function kb(q){
+ if(RED.test(q))return "**These symptoms can be an emergency.** Call your local emergency number or go to the nearest hospital now. If you are thinking of harming yourself, contact emergency services or a crisis line right away.";
+ const hit=KB.filter(k=>k[0].test(q)).slice(0,2).map(k=>k[1]);
+ return hit.length?hit.join('\n\n'):"I don't have a built-in answer for that. I can cover stress and mental well-being, dehydration, nutrition, sleep, vaccines, pregnancy and newborn care, heat, air pollution, fever, exercise, and blood pressure or diabetes. For personal concerns, please see a doctor or health worker.";
+}
+
+async function api(b){const r=await fetch('/api/ai',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)});const j=await r.json().catch(()=>({}));if(!r.ok||j.data==null)throw{code:r.status===429?'rate_limited':'upstream_error'};return j.data}
+async function toB64(files){const out=[];for(const f of files.slice(0,3)){const bm=await createImageBitmap(f),k=Math.min(1,1400/Math.max(bm.width,bm.height)),c=document.createElement('canvas');c.width=Math.round(bm.width*k);c.height=Math.round(bm.height*k);c.getContext('2d').drawImage(bm,0,0,c.width,c.height);out.push(c.toDataURL('image/jpeg',.8).split(',')[1])}return out}
+
+const TIPS=["Wash your hands with soap for at least 20 seconds before eating and after using the toilet.","Aim for 7 to 9 hours of sleep. A regular bedtime helps more than catching up at weekends.","A brisk 20 to 30 minute walk on most days is good for your heart and your mood.","Fill half your plate with vegetables and fruit at each main meal.","Sip water through the day. Pale yellow urine is a good sign you are drinking enough.","When stress rises, take three slow breaths: in for four counts, out for six.","Check that your vaccines, and your children's, are up to date at your local clinic.","Limit sugary drinks. Water, or unsweetened tea or coffee, are better choices.","If you sit for long periods, stand up and move for a few minutes every hour.","Avoid tobacco and second-hand smoke. It is one of the best things you can do for your lungs and heart.","Protect your skin: wear a hat or seek shade when the sun is strongest.","Talking to someone you trust about your worries is a sign of strength, and it helps.","Have your blood pressure checked regularly, even if you feel well.","Keep screens out of the bedroom, or switch them off 30 minutes before sleep."];
+$('#tip').textContent=TIPS[Math.floor(Date.now()/864e5)%TIPS.length];
+
+// daily check-in (saved on this device only)
+const SK='arogya-'+new Date().toISOString().slice(0,10);let T={w:0,s:'',m:0};
+try{T=Object.assign(T,JSON.parse(localStorage.getItem(SK)||'{}'))}catch(e){}
+function tsave(){try{localStorage.setItem(SK,JSON.stringify(T))}catch(e){}}
+function trender(){
+ $('#wn').textContent=T.w;$('#ts').value=T.s;
+ document.querySelectorAll('#moods button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.m===T.m));
+ const o=$('#tout'),sl=+T.s,bar=(l,pct,t)=>{const d=el('div','pb'),tr=el('div','pt'),f=el('i');f.style.width=Math.min(100,pct)+'%';tr.append(f);d.append(el('div','pl',l+': '+t),tr);return d};
+ const tips=[];
+ if(T.w<8)tips.push('A few more glasses of water through the day will help.');else tips.push('You have reached a common daily water target.');
+ if(sl&&sl<7)tips.push('Try an earlier, regular bedtime tonight.');else if(sl)tips.push('Your sleep is in a healthy range.');
+ if(T.m&&T.m<=2)tips.push('Low days happen. Talk to someone you trust, and see a doctor or counsellor if the low mood lasts more than two weeks.');
+ const d=el('div');d.append(el('h3',null,'Today'),bar('Water',T.w/8*100,T.w+' of 8 glasses'),bar('Sleep',sl?sl/8*100:0,sl?sl+' hours':'not logged'),el('p','note',tips.join(' ')));
+ o.replaceChildren(d)}
+$('#wp').onclick=()=>{T.w=Math.min(20,T.w+1);tsave();trender()};
+$('#wm').onclick=()=>{T.w=Math.max(0,T.w-1);tsave();trender()};
+$('#ts').onchange=e=>{T.s=e.target.value;tsave();trender()};
+$('#moods').onclick=e=>{const b=e.target.closest('button');if(!b)return;T.m=+b.dataset.m;tsave();trender()};
+trender();
+
+// helplines
+const HL={India:[['Emergency','112'],['Ambulance','108'],['Tele-MANAS mental health','14416']],'United States':[['Emergency','911'],['Suicide & Crisis Lifeline (call or text)','988'],['Poison Control','1-800-222-1222']],'United Kingdom':[['Emergency','999'],['NHS non-emergency','111'],['Samaritans','116 123']],Australia:[['Emergency','000'],['Lifeline','13 11 14'],['Poisons Information','13 11 26']],Canada:[['Emergency','911'],['Suicide Crisis Helpline','988']],'European Union':[['Emergency','112']]};
+$('#hc').onchange=e=>{const o=$('#hn');o.replaceChildren();(HL[e.target.value]||[]).forEach(([n,v])=>{const a=el('a');a.href='tel:'+v.replace(/[^\d]/g,'');a.append(el('span',null,n),el('b',null,v));o.append(a)});if(HL[e.target.value])o.append(el('p','note','Numbers can change. Check your local health service if unsure.'))};
+
+// voice input
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+if(SR){const mic=$('#mic');mic.hidden=false;const LC={Hindi:'hi-IN',Gujarati:'gu-IN',Spanish:'es-ES',French:'fr-FR',Arabic:'ar-SA',English:'en-US'};
+ mic.onclick=()=>{try{const r=new SR();r.lang=LC[$('#lang').value]||navigator.language||'en-US';r.onresult=e=>{input.value=e.results[0][0].transcript;ask(input.value)};r.onerror=()=>{};r.start()}catch(e){}}}
+
+// floating button and reveal on scroll
+const fab=$('#fab');let inChat=false;
+const upd=()=>fab.classList.toggle('on',scrollY>500&&!inChat);
+addEventListener('scroll',upd,{passive:true});
+if('IntersectionObserver' in window){
+ new IntersectionObserver(e=>{inChat=e[0].isIntersecting;upd()}).observe($('#chat'));
+ document.documentElement.classList.add('js');
+ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.06});
+ document.querySelectorAll('section>.wrap').forEach(n=>{n.classList.add('reveal');io.observe(n)})}
+</script>
+<a class="fab" id="fab" href="#chat">Ask Arogya</a>
+</body>
+</html>
